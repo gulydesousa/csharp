@@ -46,4 +46,20 @@ jobs:
           # for the same tool and ref. If you don't use `category` in your workflow,
           # GitHub will generate a default category name for you
           category: "my_category"
+
+
+
+    - name: Upload results
+      uses: github/codeql-action/upload-sarif@v3
+      with:
+        token: ${{ secrets.GITHUB_TOKEN }}
+        #upload: always
+        #cleanup-level: brutal
+        #add-snippets: false
+        #skip-queries: false
+        #upload-database: true
+        wait-for-processing: true
+        #expect-error: false
+        sarif_file: '/home/runner/work/test-codeql/results/csharp.sarif'    
+        category: 'upload-results-csharp'
     
