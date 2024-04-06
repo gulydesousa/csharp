@@ -1,0 +1,27 @@
+name: "Prueba 1"
+
+on:
+  workflow_dispatch:
+
+permissions:
+  security-events: write
+
+jobs:
+  analyze:
+    name: Analyze
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: Checkout repository
+      uses: actions/checkout@v4
+
+    - name: Build
+      run: |
+        dotnet build ./csharp.sln
+        
+    - name: Initialize CodeQL
+      uses: github/codeql-action/init@v3
+
+    - name: Perform CodeQL Analysis
+      uses: github/codeql-action/analyze@v3
+    
