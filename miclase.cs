@@ -97,6 +97,26 @@ private static bool ExisteFacturaDuplicada(List<FacturaHeader> facturas, string 
     return false;
 }
 
+        public void GetUserData(string userId)
+{
+    string query = "SELECT * FROM Users WHERE UserId = " + userId;
+    using (var connection = new SqlConnection(_connectionString))
+    {
+        connection.Open();
+        using (var command = new SqlCommand(query, connection))
+        {
+            using (var reader = command.ExecuteReader())
+            {
+                while (reader.Read())
+                {
+                    Console.WriteLine($"User ID: {reader["UserId"]}, Username: {reader["Username"]}");
+                }
+            }
+        }
+    }
+}
+
+
 
 private static string RecuperarPropiedadDesdeDB(string propiedad, string valor)
 {
