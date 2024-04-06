@@ -4,7 +4,7 @@
  * @kind problem
  * @problem.severity error
  * @tags miPrueba
- * @precision medium
+ * @precision high
  * @id csharp/example/empty-block
  * @security-severity 1.0
  */
