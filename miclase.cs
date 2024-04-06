@@ -126,7 +126,13 @@ private static string ProcesoIneficienteDeMoneda(string moneda)
     Task.Delay(200).Wait(); // Simula una operación larga
     return $"Procesado_{moneda}";
 }
-
+    
+public void GetUserData(string userId)
+{
+    string query = "SELECT * FROM Users WHERE UserId = " + userId;
+    // Ejecutar la consulta...
+}
+        
 // Simula un proceso ineficiente para manejar las notas
 private static string ProcesoIneficienteDeNotas(string notas)
 {
