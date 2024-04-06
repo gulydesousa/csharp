@@ -29,6 +29,7 @@ jobs:
       with:
         languages: ${{ matrix.language }}
         config-file: ./.github/codeql/codeql-config.yml
+        debug: true
         
     #****************************************************************
     #La compilación debe hacerse despues del init y antes de analyze
