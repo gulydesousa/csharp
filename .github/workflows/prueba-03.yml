@@ -47,12 +47,3 @@ jobs:
           # GitHub will generate a default category name for you
           category: "my_category"
 
-
-
-    - name: Upload SARIF file
-      uses: github/codeql-action/upload-sarif@v3
-      with:
-        # Path to SARIF file relative to the root of the repository
-        sarif_file: '/home/runner/work/csharp/results/csharp.sarif' 
-        category: "my_category"
-    
