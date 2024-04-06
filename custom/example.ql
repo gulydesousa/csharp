@@ -1,11 +1,11 @@
 /**
- * @name Empty block
- * @description Descripcion aqui
+ * @name Empty block NUEVO
+ * @description NUEVO CodeQL
  * @kind problem
  * @problem.severity error
  * @tags miPrueba
  * @precision high
- * @id csharp/example/empty-block
+ * @id csharp/example/emptyblock
  * @security-severity 1.0
  */
 
