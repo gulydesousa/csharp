@@ -1,0 +1,44 @@
+name: "Prueba 01"
+
+on:
+  workflow_dispatch:
+
+permissions:
+  security-events: write
+
+jobs:
+  analyze:
+    name: Analyze
+    runs-on: ubuntu-latest
+    permissions:
+      security-events: write
+      actions: read
+    strategy:
+      fail-fast: false
+      matrix: 
+        language: ['csharp'] 
+        #language: ['csharp', 'c-cpp', 'javascript-typescript'] 
+
+    steps:
+    - name: Checkout repository
+      uses: actions/checkout@v4
+
+
+        
+    - name: Initialize CodeQL
+      uses: github/codeql-action/init@v3
+      with:
+        languages: 'csharp'
+        
+    #****************************************************************
+    #La compilación debe hacerse despues del init y antes de analyze
+    - name: Build
+      run: |
+        dotnet build ./csharp.sln
+    #****************************************************************
+    
+    - name: Perform CodeQL Analysis
+      uses: github/codeql-action/analyze@v3
+      with:
+          languages: ${{ matrix.language }}
+    
