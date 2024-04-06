@@ -46,7 +46,10 @@ jobs:
           # for the same tool and ref. If you don't use `category` in your workflow,
           # GitHub will generate a default category name for you
           category: "my_category"
-
+          output: '../results'
+    
+    - name: Display SARIF file
+      run: cat ../results/csharp.sarif
 
   upload_sarif:
     name: Upload SARIF file
