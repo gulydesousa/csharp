@@ -10,6 +10,14 @@ jobs:
   analyze:
     name: Analyze
     runs-on: ubuntu-latest
+    permissions:
+      security-events: write
+      actions: read
+    strategy:
+      fail-fast: false
+      matrix: 
+        language: ['csharp'] 
+        #language: ['csharp', 'c-cpp', 'javascript-typescript'] 
 
     steps:
     - name: Checkout repository
@@ -26,4 +34,6 @@ jobs:
 
     - name: Perform CodeQL Analysis
       uses: github/codeql-action/analyze@v3
+      with:
+          languages: ${{ matrix.language }}
     
