@@ -1,4 +1,4 @@
-name: "Prueba 01"
+name: "Prueba 02"
 
 on:
   workflow_dispatch:
