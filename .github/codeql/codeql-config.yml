@@ -1,6 +1,15 @@
-name: getting-started/codeql-extra-queries-csharp
-version: 0.0.0
-dependencies:
-  # This uses the latest version of the codeql/csharp-all library.
-  # You may want to change to a more precise semver string.
-  codeql/csharp-all: "*"
+name: "CodeQL config"
+queries: 
+  - name: Run custom queries
+    uses: ./queries
+  # Run all extra query suites, both because we want to
+  # and because it'll act as extra testing. This is why
+  # we include both even though one is a superset of the
+  # other, because we're testing the parsing logic and
+  # that the suites exist in the codeql bundle.
+  - uses: security-experimental
+  - uses: security-extended
+  - uses: security-and-quality
+paths-ignore:
+  - tests
+  - lib
